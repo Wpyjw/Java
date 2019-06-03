@@ -114,11 +114,14 @@ try catch
 如果文件不存在，try 里的代码会立即终止，程序流程会运行到对应的catch块中
 e.printStackTrace() 会打印出方法的调用痕迹
 
-使用private修饰属性
-自身：是可以访问的
-同包子类：不能继承
-不同包子类：不能继承
-同包类：不能访问
-其他包类：不能访问
+![类](https://github.com/Wpyjw/Java/blob/master/612.png)
+
+
+
+作用范围最小原则
+private>package>protected>public
+
+当一个属性被static修饰的时候，就叫做类属性，又叫做静态属性 
+当一个属性被声明成类属性，那么所有的对象，都共享一个值 
 
 
