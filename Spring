@@ -10,3 +10,45 @@ Spring 是为解决企业应用程序开发复杂性而创建的一个Java开源
 
 
 获取对象的不同方式  传统方式   用IOC
+
+IoC (Invertion of Control0) 控制反转
+控制对象的创建和销毁（生命周期）
+将对象的控制权交给容器
+哪些方面的控制被反转了呢？获得依赖对象的过程被反转了。不是由我们控制，而是由外部容器控
+依赖注入（Dependency Injection）IOC容器运行期间，动态地将某种依赖关系注入到对象中。
+依赖注入时控制反转的实现。
+
+注入：在启动Spring容器加载bean配置的时候，完成对变量的赋值行为。
+（扫描xml文件中的bean标签时，实例化对象的同时，完成成员变量的赋值）
+Spring常用的注入方式：
+
+设值注入：通过一个属性或者成员变量的Set方法进行注入
+
+<bean id="injectionService" class="com.imooc.ioc.injection.service.InjectionServiceImpl">
+
+<property name="injectionDAO" ref="injectionDAO"/>
+
+</bean>
+
+<bean id="injectionDAO" class="com.imooc.ioc.injection.dao.InjectionDAOImpl">
+
+</bean>
+
+构造注入
+
+<bean id="injectionService" class="com.imooc.ioc.injection.service.InjectionServiceImpl">
+
+<constructor-arg name="injectionDAO" ref="injectionDAO"/>
+
+</bean>
+
+<bean id="injectionDAO" class="com.imooc.ioc.injection.dao.InjectionDAOImpl">
+
+</bean>
+
+
+
+Bean的作用域：
+singleton:单例模式，一个Bean容器中只存在一份。
+prototype:每次请求（每次使用）创建新的实例，destroy方式不生效。
+
