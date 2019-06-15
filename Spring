@@ -52,3 +52,48 @@ Bean的作用域：
 singleton:单例模式，一个Bean容器中只存在一份。
 prototype:每次请求（每次使用）创建新的实例，destroy方式不生效。
 
+Bean容器初始化
+基础:两个包：org.springframework.beans  
+              org.springframework.context
+              BeanFactory提供配置结构和基本功能，加载并初始化Bean
+              ApplicationContext保存了Bean对象并在SPring中被广泛使用
+方式，ApplicationContext
+-本地文件
+-Classpath
+-Web应用中依赖servlet或Listener
+
+Spring注入是指在启动Spring容器加载bean配置的时候，完成对变量的赋值行为。
+Spring的常用注入方式：
+设值注入：通过一个属性或者成员变量的Set方法进行注入
+<property name="injectionDAO" ref="injectionDAO"/>
+构造注入
+<constructor-arg name="injectionDAO" ref="injectionDAO"/>
+
+一，编辑Java文件时，
+
+注释和取消注释的快捷键都是： "CTRL + / "
+
+
+
+二，编辑xml文件时，
+
+注释：CTRL + SHIFT + /
+
+取消注释：CTRL + SHIFT + \
+
+Bean的作用域
+singleton:单例，指一个Bean容器只存在一份
+prototype:每次请求（每次使用）创建新的实例，destroy方式不生效
+request:每次http请求创建一个实例且仅在当前request内有效
+session:同上，每次http请求创建，当前session内有效
+global session:基于Protlet的web中有效（prtlet定义了global session），如果是在web中，同session
+
+
+Bean的生命周期
+初始化：
+实现org.springframework.beans.factory.InitializingBean接口，覆盖afterPropertiesSet方法
+-配置 init-method
+
+同时使用三种方式的顺序
+接口的实现
+Init-method（default不生效，被覆盖掉）
